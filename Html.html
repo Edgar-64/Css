@@ -1,0 +1,173 @@
+<div class="canvas">
+  <div class="runner">
+    <div class="head"></div>
+    <div class="torso"></div>
+    <div class="arm arm-left">
+      <div class="lower-arm"></div>
+      <div class="upper-arm"></div>
+    </div>
+    <div class="arm arm-right">
+      <div class="lower-arm"></div>
+      <div class="upper-arm"></div>
+    </div>
+    <div class="leg leg-left">
+      <div class="lower-leg"></div>
+      <div class="upper-leg"></div>
+    </div>
+    <div class="leg leg-right">
+      <div class="lower-leg"></div>
+      <div class="upper-leg"></div>
+    </div>
+  </div>
+  <div class="floor">
+    <div class="tree1"></div>
+    <div class="tree2"></div>
+    <div class="tree3"></div>
+  </div>
+</div>
+
+
+<style>
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.floor {
+    position: absolute;
+    bottom: 20%;
+    width: 300%;
+    height: 20px;
+    background-color: #663600;
+    animation: cenario 5s infinite ;
+}
+
+.tree1, .tree2, .tree3 {
+    position: absolute;
+    bottom: 20px;
+    width: 30px;
+    height: 60px;
+    background-color: #228B22;
+}
+
+.tree1 {
+    left: 00%;
+}
+
+.tree2 {
+    left: 20%;
+}
+
+.tree3 {
+    left: 40%;
+}
+
+.head {
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    border-radius: 50%;
+    position: absolute;
+    top: 21%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.torso {
+    width: 20px;
+    height: 100px;
+    background-color: #000000;
+    position: absolute;
+    z-index: 2;
+    top: 27%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.arm {
+    width: 10px;
+    height: 60px;
+    position: absolute;
+    top: 27%;
+    transform: rotate(90deg);
+    transform-origin: top center;
+}
+
+.arm-left {
+    left: 50%;
+    background-color: #ff0000;
+    animation: moveArmLeft 3s infinite alternate;
+    z-index: 1;
+}
+
+.arm-left .lower-arm {
+    width: 10px;
+    height: 50px;
+    background-color: #af0202;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    transform: rotate(-90deg);
+    transform-origin: top center;
+}
+
+.arm-right {
+    left: 49%;
+    background-color: #747474;
+    animation: moveArmRight 3s infinite alternate;
+    z-index: 3;
+}
+
+.lower-arm {
+    position: absolute;
+    z-index: 2;
+}
+
+.arm-right .lower-arm {
+    width: 10px;
+    height: 50px;
+    background-color: #3a3a3a;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    transform: rotate(-90deg);
+    transform-origin: top center;
+}
+
+@keyframes cenario {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+    
+}
+@keyframes moveArmRight {
+    0% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes moveArmLeft {
+    0% {
+        transform: rotate(-90deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+
+</style>
