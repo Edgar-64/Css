@@ -1,0 +1,49 @@
+<div class="parallax-container" onclick="fazerPular()">
+  <div class="layer clouds"></div>
+  <div class="layer mountains"></div>
+  <div id="player" class="pulo-simples"></div>
+  <div class="layer ground"></div>
+</div>
+<style>
+    /* Estado normal do quadrado (parado no chão) */
+.pulo-simples {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: absolute;
+  bottom: 50px;
+  left: 100px;
+  z-index: 10;
+}
+
+/* Esta classe será adicionada pelo clique */
+.animate-jump {
+  /* Usamos 'ease-out' para subir e 'ease-in' para descer */
+  animation: jump-action 0.6s ease-in-out;
+}
+
+@keyframes jump-action {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-100px); } /* Altura máxima */
+  100% { transform: translateY(0); }
+}
+
+/* ... mantenha o restante do seu código de parallax (nuvens, chão, etc) ... */
+</style>
+<script>
+function fazerPular() {
+  const player = document.getElementById('player');
+  
+  // Se ele já estiver pulando, não faz nada (evita bugs de clique duplo)
+  if (player.classList.contains('animate-jump')) return;
+
+  // Adiciona a classe que tem a animação
+  player.classList.add('animate-jump');
+
+  // Remove a classe depois que a animação termina (600ms) 
+  // para poder pular de novo depois
+  setTimeout(() => {
+    player.classList.remove('animate-jump');
+  }, 600); 
+}
+</script>
